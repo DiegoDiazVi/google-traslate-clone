@@ -1,15 +1,28 @@
 import useLanguageState from './hooks/useLanguageState.ts';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Col, Row, Button, Form, Stack } from 'react-bootstrap';
+import { Container, Col, Row, Button, Stack } from 'react-bootstrap';
 import './App.css';
 import { AUTO_LANGUAGE } from './constants/constants.ts';
 import { SwitchIcon } from './components/Icons.tsx';
 import LanguageSelector from './components/LanguageSelector.tsx';
+import TextArea from './components/TextArea.tsx';
 
 
 
 function App(): JSX.Element {
-  const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguages, setToLanguages } = useLanguageState()
+  const {
+    fromLanguage,
+    toLanguage,
+    fromText,
+    resultText,
+    loading,
+    interchangeLanguages,
+    setFromLanguages,
+    setToLanguages,
+    setFromTextLanguages,
+    setResultTextLanguages
+  } = useLanguageState();
+
   return (
     <Container fluid>
       <h1>Google Traslate</h1>
@@ -22,10 +35,10 @@ function App(): JSX.Element {
               value={fromLanguage}
               onChange={setFromLanguages}
             />
-            <Form.Control
-              as='textarea'
-              placeholder='Introduce un texto'
-              style={{height: '150px'}}
+            <TextArea
+              type='from'
+              value={fromText}
+              onChange={setFromTextLanguages}
             />
           </Stack>
         </Col>
@@ -44,10 +57,11 @@ function App(): JSX.Element {
               value={toLanguage}
               onChange={setToLanguages}
             />
-            <Form.Control
-              as='textarea'
-              placeholder='Traducción'
-              style={{height: '150px'}}
+            <TextArea
+              type='to'
+              loading={loading}
+              value={resultText}
+              onChange={setResultTextLanguages}
             />
           </Stack>
         </Col>
