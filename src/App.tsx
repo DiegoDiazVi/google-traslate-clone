@@ -6,6 +6,8 @@ import { AUTO_LANGUAGE } from './constants/constants.ts';
 import { SwitchIcon } from './components/Icons.tsx';
 import LanguageSelector from './components/LanguageSelector.tsx';
 import TextArea from './components/TextArea.tsx';
+import { useEffect } from 'react';
+import { translate } from './services/translate.ts';
 
 
 
@@ -23,6 +25,21 @@ function App(): JSX.Element {
     setResultTextLanguages
   } = useLanguageState();
 
+  useEffect(() => {
+    if (fromText === '') return;
+
+    translate(fromText, fromLanguage, toLanguage).then((result) => {
+      if (result === null) {
+        setResultTextLanguages('Sorry, I could not translate that');
+        return;
+      }
+      setResultTextLanguages(result);
+    })
+    .catch((error) => {
+      setResultTextLanguages(error);
+    });
+
+    }, [fromText]);
   return (
     <Container fluid>
       <h1>
