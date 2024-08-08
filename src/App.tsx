@@ -4,18 +4,23 @@ import { Container, Col, Row, Button} from 'react-bootstrap';
 import './App.css';
 import { AUTO_LANGUAGE } from './constants/constants.ts';
 import { SwitchIcon } from './components/Icons.tsx';
+import LanguageSelector from './components/LanguageSelector.tsx';
 
 
 
 function App(): JSX.Element {
-  const { fromLanguage, toLanguage, interchangeLanguages } = useLanguageState()
+  const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguages, setToLanguages } = useLanguageState()
   return (
     <Container fluid>
       <h1>Google Traslate</h1>
       <Row>
         <Col>
           <h2>From</h2>
-          {fromLanguage}
+          <LanguageSelector
+            type='from'
+            value={fromLanguage}
+            onChange={setFromLanguages}
+          />
         </Col>
 
         <Col>
@@ -26,7 +31,11 @@ function App(): JSX.Element {
 
         <Col>
           <h2>To</h2>
-          {toLanguage}
+          <LanguageSelector
+            type='to'
+            value={toLanguage}
+            onChange={setToLanguages}
+          />
         </Col>
       </Row>
     </Container>
