@@ -22,5 +22,10 @@ export default tseslint.config({
       'warn',
       { allowConstantExport: true },
     ],
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+    'react/prop-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
   },
 })
