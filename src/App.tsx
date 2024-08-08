@@ -25,7 +25,14 @@ function App(): JSX.Element {
 
   return (
     <Container fluid>
-      <h1>Google Traslate</h1>
+      <h1>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/d/db/Google_Translate_Icon.png"
+          alt="Google Traslate Icon"
+          style={{width: '60px', marginRight: '10px'}}
+        />
+          Google Traslate
+        </h1>
       <Row>
         <Col>
           <Stack gap={2}>
