@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { reducer } from '../reducers/reducer';
 import { initialState } from '../mocks/initialState';
-import type{ UseLanguageStateType } from '../types/types.d';
+import type{ Language, UseLanguageStateType } from '../types/types.d';
 
 
 function useLanguageState(): UseLanguageStateType {
@@ -14,14 +14,14 @@ function useLanguageState(): UseLanguageStateType {
         })
     }
 
-    const setFromLanguages = (fromLanguage: string): void => {
+    const setFromLanguages = (fromLanguage: Language): void => {
         dispatch({
             type: 'SET_FROM_LANGUAGE',
             payload: fromLanguage
         })
     }
 
-    const setToLanguages = (toLanguage: string): void => {
+    const setToLanguages = (toLanguage: Language): void => {
         dispatch({
             type: 'SET_TO_LANGUAGE',
             payload: toLanguage
