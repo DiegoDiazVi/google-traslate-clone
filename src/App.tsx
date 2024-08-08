@@ -1,6 +1,6 @@
 import useLanguageState from './hooks/useLanguageState.ts';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Col, Row, Button} from 'react-bootstrap';
+import { Container, Col, Row, Button, Form, Stack } from 'react-bootstrap';
 import './App.css';
 import { AUTO_LANGUAGE } from './constants/constants.ts';
 import { SwitchIcon } from './components/Icons.tsx';
@@ -15,29 +15,41 @@ function App(): JSX.Element {
       <h1>Google Traslate</h1>
       <Row>
         <Col>
-          <h2>From</h2>
-          <LanguageSelector
-            type='from'
-            value={fromLanguage}
-            onChange={setFromLanguages}
-          />
-          {fromLanguage}
+          <Stack gap={2}>
+            <h2>From</h2>
+            <LanguageSelector
+              type='from'
+              value={fromLanguage}
+              onChange={setFromLanguages}
+            />
+            <Form.Control
+              as='textarea'
+              placeholder='Introduce un texto'
+              style={{height: '150px'}}
+            />
+          </Stack>
         </Col>
 
-        <Col>
+        <Col xs='auto'>
           <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={() => interchangeLanguages()}>
             <SwitchIcon/>
           </Button>
         </Col>
 
         <Col>
-          <h2>To</h2>
-          <LanguageSelector
-            type='to'
-            value={toLanguage}
-            onChange={setToLanguages}
-          />
-          {toLanguage}
+          <Stack gap={2}>
+            <h2>To</h2>
+            <LanguageSelector
+              type='to'
+              value={toLanguage}
+              onChange={setToLanguages}
+            />
+            <Form.Control
+              as='textarea'
+              placeholder='Traducción'
+              style={{height: '150px'}}
+            />
+          </Stack>
         </Col>
       </Row>
     </Container>
