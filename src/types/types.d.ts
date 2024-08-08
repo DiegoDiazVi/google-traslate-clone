@@ -9,8 +9,8 @@ export interface StateLanguages {
 
 export type ActionReducer =
     | {type: 'INTERCHANGE_LANGUAGES'}
-    | {type: 'SET_FROM_LANGUAGE',        payload: string}
-    | {type: 'SET_TO_LANGUAGE',          payload: string}
+    | {type: 'SET_FROM_LANGUAGE',        payload: FromLanguage}
+    | {type: 'SET_TO_LANGUAGE',          payload: Language}
     | {type: 'SET_FROM_TEXT_LANGUAGE',   payload: string}
     | {type: 'SET_RESULT_TEXT_LANGUAGE', payload: string}
 
