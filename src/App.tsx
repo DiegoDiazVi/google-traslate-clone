@@ -1,12 +1,14 @@
 import useLanguageState from './hooks/useLanguageState.ts';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Col, Row, Button} from 'react-bootstrap';
 import './App.css';
+import { AUTO_LANGUAGE } from './constants/constants.ts';
+import { SwitchIcon } from './components/Icons.tsx';
 
 
 
 function App(): JSX.Element {
-  const { fromLanguage, toLanguage, setFromLanguages, interchangeLanguages } = useLanguageState()
+  const { fromLanguage, toLanguage, interchangeLanguages } = useLanguageState()
   return (
     <Container fluid>
       <h1>Google Traslate</h1>
@@ -17,7 +19,9 @@ function App(): JSX.Element {
         </Col>
 
         <Col>
-          <button onClick={() => interchangeLanguages()}>Interchange</button>
+          <Button variant='link' disabled={fromLanguage === AUTO_LANGUAGE} onClick={() => interchangeLanguages()}>
+            <SwitchIcon/>
+          </Button>
         </Col>
 
         <Col>
