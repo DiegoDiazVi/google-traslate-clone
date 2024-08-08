@@ -33,6 +33,7 @@ function TextArea({ type, loading, value, onChange }: Props): JSX.Element {
         <Form.Control
             as='textarea'
             placeholder={getPlaceholder({type, loading})}
+            disabled={ type === 'to' }
             style={styles}
             value={value}
             onChange={handlerChange}
