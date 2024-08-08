@@ -16,7 +16,7 @@ export type ActionReducer =
 
 interface UseLanguageStateType extends StateLanguages {
     interchangeLanguages:   () => void,
-    setFromLanguages:       (fromLanguage: Language) => void,
+    setFromLanguages:       (fromLanguage: FromLanguage) => void,
     setToLanguages:         (toLanguage: Language) => void,
     setFromTextLanguages:   (fromText: string) => void,
     setResultTextLanguages: (resultText: string) => void
