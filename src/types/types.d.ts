@@ -1,7 +1,7 @@
 import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from '../constants/constants';
 export interface StateLanguages {
-    fromLanguage: string;
-    toLanguage:   string;
+    fromLanguage: FromLanguage;
+    toLanguage:   Language;
     fromText:     string;
     resultText:   string;
     loading:      boolean;
