@@ -21,6 +21,7 @@ function App(): JSX.Element {
             value={fromLanguage}
             onChange={setFromLanguages}
           />
+          {fromLanguage}
         </Col>
 
         <Col>
@@ -36,6 +37,7 @@ function App(): JSX.Element {
             value={toLanguage}
             onChange={setToLanguages}
           />
+          {toLanguage}
         </Col>
       </Row>
     </Container>
