@@ -5,6 +5,7 @@ export function reducer(state: StateLanguages, action: ActionReducer): StateLang
 
     switch ( type ) {
         case 'INTERCHANGE_LANGUAGES':
+            if(state.fromLanguage === 'auto') return state;
             return {
                 ...state,
                 fromLanguage: state.toLanguage,
