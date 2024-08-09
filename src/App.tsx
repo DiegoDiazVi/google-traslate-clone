@@ -39,7 +39,7 @@ function App(): JSX.Element {
       setResultTextLanguages(error);
     });
 
-    }, [fromText]);
+    }, [fromText, toLanguage]);
   return (
     <Container fluid>
       <h1>
